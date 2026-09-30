@@ -2,6 +2,7 @@
 alias l='ls -l'
 
 # cd
+alias gods='cd ~/Desktop/'
 alias gobd='cd ~/Desktop/build/'
 alias goco='cd ~/Desktop/course/'
 alias gowa='cd ~/Desktop/build/web_projects/web_apps/'
@@ -14,6 +15,7 @@ alias gopw='cd ~/Desktop/build/web_projects/websites/personal-website'
 alias gal='git add *'
 alias gs='git status'
 alias gps='git push'
+alias gpsu='git push -u origin master'
 alias gpl='git pull'
 
 # npm
