@@ -12,8 +12,17 @@ Loop % keys.Length() {
     Hotkey, ^%key%, PasteSnippet
 }
 
+; Also bind Ctrl+Shift+number row (Ctrl+Shift+0, Ctrl+Shift+1, etc.)
+; mapped to the same snippets as the matching numpad key.
+Loop, 10 {
+    digit := A_Index - 1
+    Hotkey, ^+%digit%, PasteSnippet
+}
+return
+
 PasteSnippet:
-    keyPressed := SubStr(A_ThisHotkey, InStr(A_ThisHotkey, "Numpad"))
+    ; Last char of the hotkey is the digit for both ^Numpad# and ^+# forms
+    keyPressed := "Numpad" . SubStr(A_ThisHotkey, 0)
     IniRead, snippetText, %configFile%, Snippets, %keyPressed%, %A_Space%
     if (snippetText != "") {
         savedClip := ClipboardAll
